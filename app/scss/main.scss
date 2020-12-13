@@ -1,0 +1,65 @@
+@import 'reset';
+
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600&display=swap');
+
+@import 'variables';
+@import 'mixins';
+@import 'comon';
+// @import 'iconFont';
+
+@import 'layouts/header';
+// @import 'layouts/footer';
+
+@import 'plugins/owl';
+
+
+.banner {
+  position: relative;
+  text-align: center;
+
+  &__content {
+    max-width: 675px;
+    position: absolute;
+    top: 55%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+
+    @media (max-width: 767px ) {
+      width: 95%;
+    }
+  }
+
+  &__title {
+    margin-bottom: 45px;
+    @include text($font-openSans, 63px, 50px, 600, $color-bannerTitle);
+
+    @media (max-width: 425px) {
+      font-size: 45px;
+    }
+  }
+
+  &__subtitle {
+    max-width: 380px;
+    margin: 0 auto 65px auto;
+    @include text($font-openSans, 23px, 30px, 400, $color-bannerSubtitle);
+
+    @media (max-width: 425px ) {
+      max-width: 300px;
+    }
+  }
+
+  &__button {
+    padding: 0 42px;
+    border: 3px solid white;
+    border-radius: 10px;
+    display: inline-block;
+    @include text($font-openSans, 26px, 63px, 600, $color-bannerSubtitle);
+    text-decoration: none;
+    text-transform: capitalize;
+
+    @media (max-width: 425px) {
+      font-size: 20px;
+      line-height: 40px;
+    }
+  }
+}

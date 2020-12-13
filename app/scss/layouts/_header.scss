@@ -1,0 +1,138 @@
+.header {
+  width: 100%;
+  padding: 30px 15px 33px 15px;
+  position: fixed;
+  z-index: $zindex-header;
+  background: #fff;
+
+  &__nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  &__logo {
+    width: 120px;
+    height: 37px;
+    overflow: hidden;
+
+    > img {
+      width: 100%;
+    }
+  }
+
+  &__menu {
+    width: 50%;
+    display: flex;
+    justify-content: space-around;
+  }
+
+  &__menu-button {
+    width: 30px;
+    height: 30px;
+    display: none;
+    border: 2px solid $color-headerText;
+    border-radius: 5px;
+
+    span {
+      width: 80%;
+      height: 2px;
+      margin: 0 auto;
+      background-color: $color-headerText;
+      display: block;
+      position: relative;
+      top: 50%;
+      transform: translateY(-50%);
+
+      &:before {
+        content: '';
+        width: 100%;
+        height: 2px;
+        margin: 0 auto;
+        background-color: $color-headerText;
+        display: block;
+        position: absolute;
+        top: -7px;
+      }
+
+      &:after {
+        content: '';
+        width: 100%;
+        height: 2px;
+        margin: 0 auto;
+        background-color: $color-headerText;
+        display: block;
+        position: absolute;
+        top: 7px;
+      }
+    }
+
+    &.opened {
+      span {
+        background: transparent;
+
+        &:before {
+          top: 0;
+          transform: rotate(-45deg);
+        }
+
+        &:after {
+          top: 0;
+          transform: rotate(45deg);
+        }
+      }
+    }
+  }
+
+  &__menu-link {
+    padding: 40px 20px;
+    border-bottom: 3px solid transparent;
+
+    background-color: transparent;
+    @include text($font-openSans, 15px, 13px, 400, $color-headerText);
+    text-decoration: none;
+    text-transform: capitalize;
+    transition: 0.3s;
+
+    &:hover {
+      color: $color-headerTextHover;
+      background-color: $color-headerBgHover;
+      border-bottom-color: $color-headerTextHover;
+    }
+  }
+}
+
+  @media (max-width: 767px ) {
+    .header {
+      padding: 10px;
+
+      &__menu-button {
+        display: block;
+      }
+
+      &__menu {
+        width: 100%;
+        padding: 15px;
+        display: none;
+        flex-direction: column;
+        position: absolute;
+        top: 100%;
+        left: 50%;
+        transform: translateX(-50%);
+        background-color: #fff;
+        text-align: center;
+
+        &.opened {
+          display: block;
+        }
+      }
+
+      &__menu-link {
+        margin: 15px 0;
+        padding: 0;
+        display: inline-block;
+      }
+    }
+
+
+  }
